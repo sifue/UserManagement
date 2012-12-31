@@ -11,14 +11,14 @@
 
     <div class="container">
 
-      <form class="form-signin" action="{{ path('login_check') }}" method="post"ßß>
-        <h2 class="form-signin-heading">Please sign in</h2>
+      <form class="form-signin" action="{{ path('login_check') }}" method="post">
+        <h2 class="form-signin-heading">ログインして下さい</h2>
         <input type="text" class="input-block-level" placeholder="Email address" id="username" name="_username" value="{{ last_username }}">
         <input type="password" class="input-block-level" placeholder="Password" id="password" name="_password" >
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> チェックしたままにする
         </label>
-        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+        <button class="btn btn-large btn-primary" type="submit">ログイン</button>
       </form>
 
     </div>
