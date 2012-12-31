@@ -1,0 +1,4 @@
+# /path/to/approot/Symfony/.gitignore
+*/logs/*
+*/cache/*
+app/config/parameters.yml

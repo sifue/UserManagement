@@ -1,0 +1,7 @@
+parameters:
+#    sifue_login.example.class: Sifue\Bundle\LoginBundle\Example
+
+services:
+#    sifue_login.example:
+#        class: %sifue_login.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

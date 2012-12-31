@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" />
+
+        {#
+            認証成功した際のリダイレクト URL を制御したい場合(詳細は以下に説明する)
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+
+        <input type="submit" name="login" />
+    </form>
+{% endblock %}
