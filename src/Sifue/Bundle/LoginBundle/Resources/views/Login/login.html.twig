@@ -1,10 +1,29 @@
 {% extends '::base.html.twig' %}
+{% block stylesheets %}
+{% stylesheets '@SifueLoginBundle/Resources/public/css/*' %}
+<link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
 {% block body %}
     {% if error %}
         <div>{{ error.message }}</div>
     {% endif %}
 
-    <form action="{{ path('login_check') }}" method="post">
+    <div class="container">
+
+      <form class="form-signin" action="{{ path('login_check') }}" method="post"ßß>
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address" id="username" name="_username" value="{{ last_username }}">
+        <input type="password" class="input-block-level" placeholder="Password" id="password" name="_password" >
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      </form>
+
+    </div>
+
+<!--     <form action="{{ path('login_check') }}" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" />
 
@@ -17,5 +36,5 @@
         #}
 
         <input type="submit" name="login" />
-    </form>
+    </form> -->
 {% endblock %}

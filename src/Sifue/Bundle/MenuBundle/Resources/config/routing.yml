@@ -1,6 +1,3 @@
-sifue_menu_top:
-    pattern:  /
-    defaults: { _controller: SifueMenuBundle:Menu:index }
 sifue_menu_homepage:
-    pattern:  /menu
+    pattern:  /
     defaults: { _controller: SifueMenuBundle:Menu:index }
