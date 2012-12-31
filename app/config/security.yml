@@ -27,6 +27,22 @@ security:
             logout:
                 path:   /logout
                 target: /
+        main:
+            pattern: ^/
+            form_login:
+                username_parameter: '_username'
+                password_parameter: '_password'
+                csrf_parameter:     '_token'
+                csrf_provider:      form.csrf_provider
+                use_referer:  true
+                default_target_path: /
+            remember_me:
+                key: "%secret%"
+                lifetime: 3600
+                path: /
+                domain: ~ # Defaults to the current domain from $_SERVER
+                remember_me_parameter: '_remember_me'
+
         # dev:
         #     pattern:  ^/(_(profiler|wdt)|css|images|js)/
         #     security: false
