@@ -6,7 +6,7 @@
 
 <h1>ユーザー情報</h1>
 
-<table class="record_properties">
+<table class="table table-bordered table-striped">
     <tbody>
         <tr>
             <th>Id</th>
@@ -39,7 +39,7 @@
     </tbody>
 </table>
 
-<ul class="record_actions">
+<ul class="pager">
     <li>
         <a href="{{ path('user') }}">
             一覧へ戻る
@@ -53,7 +53,7 @@
     <li>
         <form action="{{ path('user_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">削除</button>
+            <button type="submit" class="btn">削除</button>
         </form>
     </li>
 </ul>

@@ -9,11 +9,11 @@
 <form action="{{ path('user_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">作成</button>
+        <button type="submit" class="btn">作成</button>
     </p>
 </form>
 
-<ul class="record_actions">
+<ul class="pager">
     <li>
         <a href="{{ path('user') }}">
             一覧へ戻る

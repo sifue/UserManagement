@@ -4,7 +4,7 @@
 
 {% block menu_content %}
 
-<table class="records_list">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -17,7 +17,7 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
     {% for entity in entities %}
         <tr>
             <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
@@ -28,7 +28,7 @@
             <td>{{ entity.isactive }}</td>
             <td>{{ entity.department }}</td>
             <td>
-                <ul>
+                <ul class="breadcrumb">
                     <li>
                         <a href="{{ path('user_show', { 'id': entity.id }) }}">詳細</a>
                     </li>
@@ -42,12 +42,13 @@
     </tbody>
 </table>
 
-<ul>
+<ul class="pager">
     <li>
         <a href="{{ path('user_new') }}">
             新規でユーザーを作成
         </a>
     </li>
 </ul>
+
 
 {% endblock %}

@@ -38,8 +38,8 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">ユーザー管理</li>
-              <li><a href="#">ユーザー追加</a></li>
-              <li><a href="#">ユーザー一覧(編集)</a></li>
+              <li><a href="{{ path('user_new') }}">ユーザー作成</a></li>
+              <li><a href="{{ path('user') }}">ユーザー一覧(編集)</a></li>
               <li class="nav-header">{{ app.user.username }}</li>
               <li><a href="#">ログイン情報</a></li>
               <li><a href="#">パスワード変更</a></li>
@@ -53,13 +53,13 @@
           <div class="hero-unit">
             <h1>ユーザー管理へようこそ</h1>
             <p>ユーザー管理のユーザー管理画面からユーザーを追加することができます。</p>
-            <p><a class="btn btn-primary btn-large" href="#">ユーザーを追加へ &raquo;</a></p>
+            <p><a class="btn btn-primary btn-large" href="{{ path('user_new') }}">ユーザーを追加へ &raquo;</a></p>
           </div>
           <div class="row-fluid">
             <div class="span4">
               <h2>ユーザーの一覧</h2>
               <p>ユーザーの編集及び削除はユーザーの一覧から行うことができます。またユーザーのパスワードの設定もここからすることができます。</p>
-              <p><a class="btn" href="#">ユーザーの一覧へ &raquo;</a></p>
+              <p><a class="btn" href="{{ path('user') }}">ユーザーの一覧へ &raquo;</a></p>
             </div><!--/span-->
             <div class="span4">
               <h2>パスワードの変更</h2>
