@@ -1,0 +1,4 @@
+sifue_user_user:
+    resource: "@SifueUserBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
