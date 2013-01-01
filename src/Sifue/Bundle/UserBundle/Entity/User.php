@@ -7,6 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  *
+ * command:
+ * php app/console doctrine:generate:entity --entity="SifueUserBundle:User" --fields="username:string(25) salt:string(40) password:string(40) email:string(40) is_active:boolean department:string(255)" --format=annotation
+ * php app/console generate:doctrine:crud --entity=SifueUserBundle:User --format=yml --with-write
+ * php app/console doctrine:schema:update --force
+ *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Sifue\Bundle\UserBundle\Entity\UserRepository")
  */
@@ -67,7 +72,7 @@ class User
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -83,14 +88,14 @@ class User
     public function setUsername($username)
     {
         $this->username = $username;
-    
+
         return $this;
     }
 
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
     public function getUsername()
     {
@@ -106,14 +111,14 @@ class User
     public function setSalt($salt)
     {
         $this->salt = $salt;
-    
+
         return $this;
     }
 
     /**
      * Get salt
      *
-     * @return string 
+     * @return string
      */
     public function getSalt()
     {
@@ -129,14 +134,14 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -152,14 +157,14 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -175,14 +180,14 @@ class User
     public function setIsActive($isActive)
     {
         $this->is_active = $isActive;
-    
+
         return $this;
     }
 
     /**
      * Get is_active
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsActive()
     {
@@ -198,14 +203,14 @@ class User
     public function setDepartment($department)
     {
         $this->department = $department;
-    
+
         return $this;
     }
 
     /**
      * Get department
      *
-     * @return string 
+     * @return string
      */
     public function getDepartment()
     {

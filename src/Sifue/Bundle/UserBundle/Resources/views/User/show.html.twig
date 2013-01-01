@@ -1,4 +1,10 @@
-<h1>User</h1>
+{% extends 'SifueMenuBundle:Menu:menu.html.twig' %}
+
+{% block title %}ユーザー情報{% endblock %}
+
+{% block menu_content %}
+
+<h1>ユーザー情報</h1>
 
 <table class="record_properties">
     <tbody>
@@ -36,18 +42,20 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('user') }}">
-            Back to the list
+            一覧へ戻る
         </a>
     </li>
     <li>
         <a href="{{ path('user_edit', { 'id': entity.id }) }}">
-            Edit
+            編集
         </a>
     </li>
     <li>
         <form action="{{ path('user_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">削除</button>
         </form>
     </li>
 </ul>
+
+{% endblock %}
