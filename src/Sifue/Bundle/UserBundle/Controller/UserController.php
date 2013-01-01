@@ -66,6 +66,17 @@ class UserController extends Controller
     }
 
     /**
+     * ユーザーのパスワードをエンコードする
+     * @param User $entity ユーザーのインスタンス
+     */
+    private function encodePassword(User $entity)
+    {
+        $encoderFactory = $this->get('security.encoder_factory');
+        $encoder = $encoderFactory->getEncoder($entity);
+        $entity->setPassword($encoder->encodePassword($entity->getPassword(), $entity->getSalt()));
+    }
+
+    /**
      * Creates a new User entity.
      *
      */
@@ -76,10 +87,7 @@ class UserController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-            // パスワードをエンコードしてから保存する
-            $encoderFactory = $this->get('security.encoder_factory');
-            $encoder = $encoderFactory->getEncoder($entity);
-            $entity->setPassword($encoder->encodePassword($entity->getPassword(), $entity->getSalt()));
+            $this->encodePassword($entity);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -137,6 +145,8 @@ class UserController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $this->encodePassword($entity);
+
             $em->persist($entity);
             $em->flush();
 

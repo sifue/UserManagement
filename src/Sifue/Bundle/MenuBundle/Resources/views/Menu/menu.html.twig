@@ -20,7 +20,7 @@
           <a class="brand" href="{{ path('sifue_menu_homepage') }}">プロジェクト名</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-                <a href="#" class="navbar-link">{{ app.user.username }}</a> としてログイン中
+                <a href="{{ path('user_show', { 'id': app.user.id }) }}" class="navbar-link">{{ app.user.username }}</a> としてログイン中
             </p>
             <ul class="nav">
               <li class="active"><a href="{{ path('sifue_menu_homepage') }}">ホーム</a></li>
@@ -41,7 +41,7 @@
               <li><a href="{{ path('user_new') }}">ユーザー作成</a></li>
               <li><a href="{{ path('user') }}">ユーザー一覧(編集)</a></li>
               <li class="nav-header">{{ app.user.username }}</li>
-              <li><a href="#">ログイン情報</a></li>
+              <li><a href="{{ path('user_show', { 'id': app.user.id }) }}">ログイン情報</a></li>
               <li><a href="#">パスワード変更</a></li>
               <li><a href="{{ path('logout') }}">ログアウト</a></li>
             </ul>

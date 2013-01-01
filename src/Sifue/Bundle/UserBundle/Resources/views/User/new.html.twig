@@ -7,7 +7,14 @@
 <h1>ユーザー作成</h1>
 
 <form action="{{ path('user_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.username, {'label' : '氏名'}) }}
+    {{ form_row(form.email, {'label' : 'Eメール'}) }}
+    {{ form_row(form.password, {'label' : 'パスワード'}) }}
+    {{ form_row(form.is_active, {'label' : '有効'}) }}
+    {{ form_row(form.department, {'label' : '所属'}) }}
+
+    {{ form_rest(form) }}
     <p>
         <button type="submit" class="btn">作成</button>
     </p>
