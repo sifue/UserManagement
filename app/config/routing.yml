@@ -1,3 +1,7 @@
+sifue_user:
+    resource: "@SifueUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sifue_menu:
     resource: "@SifueMenuBundle/Resources/config/routing.yml"
     prefix:   /
