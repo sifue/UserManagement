@@ -3,6 +3,7 @@
 namespace Sifue\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * User
@@ -15,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Sifue\Bundle\UserBundle\Entity\UserRepository")
  */
-class User
+class User implements AdvancedUserInterface
 {
     /**
      * @var integer
@@ -29,7 +30,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=25)
+     * @ORM\Column(name="username", type="string", length=25, unique=true)
      */
     private $username;
 
@@ -50,7 +51,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=40)
+     * @ORM\Column(name="email", type="string", length=40, unique=true)
      */
     private $email;
 
@@ -215,5 +216,45 @@ class User
     public function getDepartment()
     {
         return $this->department;
+    }
+
+    public function __construct()
+    {
+        $this->is_active = true;
+        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function equals(UserInterface $user)
+    {
+        return $user->getUsername() === $this->username;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->is_active;
     }
 }

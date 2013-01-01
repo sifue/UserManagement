@@ -10,7 +10,7 @@
 
 {% block body %}
     {% if error %}
-        <div>{{ error.message }}</div>
+        <div class="alert alert-error">{{ error.message }}</div>
     {% endif %}
 
     <div class="container">
@@ -22,6 +22,7 @@
         <label class="checkbox">
           <input type="checkbox" value="remember-me" id="remember_me" name="_remember_me" checked > ログインを維持する
         </label>
+        <input type="hidden" name="_target_path" value="/" />
         <button class="btn btn-large btn-primary" type="submit">ログイン</button>
       </form>
 

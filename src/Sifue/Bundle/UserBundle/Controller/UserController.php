@@ -76,6 +76,11 @@ class UserController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
+            // パスワードをエンコードしてから保存する
+            $encoderFactory = $this->get('security.encoder_factory');
+            $encoder = $encoderFactory->getEncoder($entity);
+            $entity->setPassword($encoder->encodePassword($entity->getPassword(), $entity->getSalt()));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

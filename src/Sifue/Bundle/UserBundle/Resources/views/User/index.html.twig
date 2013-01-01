@@ -7,14 +7,12 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Salt</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Is_active</th>
-            <th>Department</th>
-            <th>Actions</th>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>Eメール</th>
+            <th>有効</th>
+            <th>所属</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody >
@@ -22,8 +20,6 @@
         <tr>
             <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.username }}</td>
-            <td>{{ entity.salt }}</td>
-            <td>{{ entity.password }}</td>
             <td>{{ entity.email }}</td>
             <td>{{ entity.isactive }}</td>
             <td>{{ entity.department }}</td>
