@@ -8,6 +8,6 @@ class MenuController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SifueMenuBundle:Menu:index.html.twig', array());
+        return $this->render('SifueMenuBundle:Menu:menu.html.twig', array());
     }
 }
