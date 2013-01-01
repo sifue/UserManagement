@@ -48,6 +48,8 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+
+        {% block menu_content %}
           <div class="hero-unit">
             <h1>ユーザー管理へようこそ</h1>
             <p>ユーザー管理のユーザー管理画面からユーザーを追加することができます。</p>
@@ -70,6 +72,8 @@
               <p><a class="btn" href="{{ path('logout') }}">ログアウト &raquo;</a></p>
             </div><!--/span-->
           </div><!--/row-->
+        {% endblock %}
+
         </div><!--/span-->
       </div><!--/row-->
 
