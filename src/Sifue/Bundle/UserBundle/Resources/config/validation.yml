@@ -1,0 +1,10 @@
+Sifue\Bundle\UserBundle\Entity\User:
+    properties:
+        username:
+            - NotBlank: ~
+        password:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+        department:
+            - NotBlank: ~
