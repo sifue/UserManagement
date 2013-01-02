@@ -1,6 +1,6 @@
 <?php
 
-namespace Sifue\Bundle\DomainBundle\Entity;
+namespace Sifue\Bundle\DomainBundle\Factory;
 
 use Sifue\Bundle\DomainBundle\Entity\User;
 

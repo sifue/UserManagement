@@ -1,5 +1,5 @@
 parameters:
-    sifue_domain.user_factory.class: Sifue\Bundle\DomainBundle\Entity\UserFactory
+    sifue_domain.user_factory.class: Sifue\Bundle\DomainBundle\Factory\UserFactory
 
 services:
    sifue_domain.user_factory:
