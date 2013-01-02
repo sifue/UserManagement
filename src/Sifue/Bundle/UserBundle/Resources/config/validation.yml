@@ -1,4 +1,4 @@
-Sifue\Bundle\UserBundle\Entity\User:
+Sifue\Bundle\DomainBundle\Entity\User:
     properties:
         username:
             - NotBlank: ~

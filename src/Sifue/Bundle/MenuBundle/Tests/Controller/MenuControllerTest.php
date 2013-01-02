@@ -10,8 +10,15 @@ class MenuControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/menu');
+        // ログイン処理
+        $crawler = $client->request('GET', '/login');
+        $form = $crawler->selectButton('ログイン')->form(array(
+            '_username'  => 'admin',
+            '_password'  => 'adminpass',
+        ));
+        $client->submit($form);
+        $crawler = $client->followRedirect();
 
-        $this->assertTrue($crawler->filter('html:contains("Hello")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("ユーザー管理へようこそ")')->count() > 0);
     }
 }
