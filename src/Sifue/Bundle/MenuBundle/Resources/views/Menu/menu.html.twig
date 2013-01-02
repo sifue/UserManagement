@@ -20,7 +20,7 @@
           <a class="brand" href="{{ path('sifue_menu_homepage') }}">プロジェクト名</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-                <a href="{{ path('user_show', { 'id': app.user.id }) }}" class="navbar-link">{{ app.user.username }}</a> としてログイン中
+                <a href="{{ path('user_show_self')}}" class="navbar-link">{{ app.user.username }}</a> としてログイン中
             </p>
             <ul class="nav">
               <li class="active"><a href="{{ path('sifue_menu_homepage') }}">ホーム</a></li>
@@ -41,8 +41,8 @@
               <li><a href="{{ path('user_new') }}">ユーザー作成</a></li>
               <li><a href="{{ path('user') }}">ユーザー一覧(編集)</a></li>
               <li class="nav-header">{{ app.user.username }}</li>
-              <li><a href="{{ path('user_show', { 'id': app.user.id }) }}">ログイン情報</a></li>
-              <li><a href="{{ path('user_change_password', { 'id': app.user.id }) }}">パスワード変更</a></li>
+              <li><a href="{{ path('user_show_self') }}">ログイン情報</a></li>
+              <li><a href="{{ path('user_change_password_self') }}">パスワード変更</a></li>
               <li><a href="{{ path('logout') }}">ログアウト</a></li>
             </ul>
           </div><!--/.well -->
@@ -64,7 +64,7 @@
             <div class="span4">
               <h2>パスワードの変更</h2>
               <p>ログインをしているユーザーのパスワードを変更することができます。その他のユーザーのパスワード変更はユーザー一覧より行なえます。</p>
-              <p><a class="btn" href="{{ path('user_change_password', { 'id': app.user.id }) }}">パスワード変更へ &raquo;</a></p>
+              <p><a class="btn" href="{{ path('user_change_password_self') }}">パスワード変更へ &raquo;</a></p>
             </div><!--/span-->
             <div class="span4">
               <h2>ログアウト</h2>

@@ -53,6 +53,16 @@ class UserController extends Controller
     }
 
     /**
+     * Displays self User entity.
+     *
+     */
+    public function showSelfAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        return $this->redirect($this->generateUrl('user_show', array('id' => $user->getId())));
+    }
+
+    /**
      * Displays a form to create a new User entity.
      *
      */
@@ -212,6 +222,16 @@ class UserController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView()
         ));
+    }
+
+    /**
+     * Displays a form to change password an self User entity.
+     *
+     */
+    public function changePasswordSelfAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        return $this->redirect($this->generateUrl('user_change_password', array('id' => $user->getId())));
     }
 
     /**

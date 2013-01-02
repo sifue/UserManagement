@@ -6,6 +6,10 @@ user_show:
     pattern:  /{id}/show
     defaults: { _controller: "SifueUserBundle:User:show" }
 
+user_show_self:
+    pattern:  /show_self
+    defaults: { _controller: "SifueUserBundle:User:showSelf" }
+
 user_new:
     pattern:  /new
     defaults: { _controller: "SifueUserBundle:User:new" }
@@ -32,6 +36,10 @@ user_delete:
 user_change_password:
     pattern:  /{id}/change_password
     defaults: { _controller: "SifueUserBundle:User:changePassword" }
+
+user_change_password_self:
+    pattern:  /change_password_self
+    defaults: { _controller: "SifueUserBundle:User:changePasswordSelf" }
 
 user_update_password:
     pattern:  /{id}/update_password

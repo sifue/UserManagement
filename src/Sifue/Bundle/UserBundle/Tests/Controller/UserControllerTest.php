@@ -15,8 +15,8 @@ class UserControllerTest extends WebTestCase
         // ログイン処理 (テスト用のアカウント(test1@test.com/test1を用意して下さい)
         $crawler = $client->request('GET', '/login');
         $form = $crawler->selectButton('ログイン')->form(array(
-            '_username'  => 'test1@test.com',
-            '_password'  => 'test1',
+            '_username'  => 'admin',
+            '_password'  => 'adminpass',
         ));
         $client->submit($form);
         $crawler = $client->followRedirect();
