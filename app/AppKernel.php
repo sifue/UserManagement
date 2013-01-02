@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Sifue\Bundle\LoginBundle\SifueLoginBundle(),
             new Sifue\Bundle\MenuBundle\SifueMenuBundle(),
             new Sifue\Bundle\UserBundle\SifueUserBundle(),
+            new Sifue\Bundle\DomainBundle\SifueDomainBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
