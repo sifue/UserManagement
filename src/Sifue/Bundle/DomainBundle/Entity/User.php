@@ -1,6 +1,6 @@
 <?php
 
-namespace Sifue\Bundle\UserBundle\Entity;
+namespace Sifue\Bundle\DomainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
@@ -9,12 +9,12 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * User
  *
  * command:
- * php app/console doctrine:generate:entity --entity="SifueUserBundle:User" --fields="username:string(25) salt:string(40) password:string(40) email:string(40) is_active:boolean department:string(255)" --format=annotation
- * php app/console generate:doctrine:crud --entity=SifueUserBundle:User --format=yml --with-write
+ * php app/console doctrine:generate:entity --entity="SifueDomainBundle:User" --fields="username:string(25) salt:string(40) password:string(40) email:string(40) is_active:boolean department:string(255)" --format=annotation
+ * php app/console generate:doctrine:crud --entity=SifueDomainBundle:User --format=yml --with-write
  * php app/console doctrine:schema:update --force
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Sifue\Bundle\UserBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="Sifue\Bundle\DomainBundle\Entity\UserRepository")
  */
 class User implements AdvancedUserInterface
 {
@@ -216,12 +216,6 @@ class User implements AdvancedUserInterface
     public function getDepartment()
     {
         return $this->department;
-    }
-
-    public function __construct()
-    {
-        $this->is_active = true;
-        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
     }
 
     public function getRoles()

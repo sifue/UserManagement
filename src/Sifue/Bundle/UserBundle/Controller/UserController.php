@@ -5,7 +5,7 @@ namespace Sifue\Bundle\UserBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Sifue\Bundle\UserBundle\Entity\User;
+use Sifue\Bundle\DomainBundle\Entity\User;
 use Sifue\Bundle\UserBundle\Form\UserType;
 use Sifue\Bundle\UserBundle\Form\EditUserType;
 use Sifue\Bundle\UserBundle\Form\ChangePasswordUserType;
@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SifueUserBundle:User')->findAll();
+        $entities = $em->getRepository('SifueDomainBundle:User')->findAll();
 
         return $this->render('SifueUserBundle:User:index.html.twig', array(
             'entities' => $entities,
@@ -39,7 +39,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+        $entity = $em->getRepository('SifueDomainBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
@@ -58,7 +58,7 @@ class UserController extends Controller
      */
     public function newAction()
     {
-        $entity = new User();
+        $entity = $this->get('sifue_domain.user_factory')->get();
         $form   = $this->createForm(new UserType(), $entity);
 
         return $this->render('SifueUserBundle:User:new.html.twig', array(
@@ -84,7 +84,7 @@ class UserController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity  = new User();
+        $entity  = $this->get('sifue_domain.user_factory')->get();
         $form = $this->createForm(new UserType(), $entity);
         $form->bind($request);
 
@@ -112,7 +112,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+        $entity = $em->getRepository('SifueDomainBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
@@ -136,7 +136,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+        $entity = $em->getRepository('SifueDomainBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
@@ -171,7 +171,7 @@ class UserController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+            $entity = $em->getRepository('SifueDomainBundle:User')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find User entity.');
@@ -200,7 +200,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+        $entity = $em->getRepository('SifueDomainBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
@@ -222,7 +222,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+        $entity = $em->getRepository('SifueDomainBundle:User')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');

@@ -25,7 +25,7 @@ class ChangePasswordUserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Sifue\Bundle\UserBundle\Entity\User'
+            'data_class' => 'Sifue\Bundle\DomainBundle\Entity\User'
         ));
     }
 

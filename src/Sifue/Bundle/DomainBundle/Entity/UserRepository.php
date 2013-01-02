@@ -1,6 +1,6 @@
 <?php
 
-namespace Sifue\Bundle\UserBundle\Entity;
+namespace Sifue\Bundle\DomainBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
