@@ -42,7 +42,7 @@
               <li><a href="{{ path('user') }}">ユーザー一覧(編集)</a></li>
               <li class="nav-header">{{ app.user.username }}</li>
               <li><a href="{{ path('user_show', { 'id': app.user.id }) }}">ログイン情報</a></li>
-              <li><a href="#">パスワード変更</a></li>
+              <li><a href="{{ path('user_change_password', { 'id': app.user.id }) }}">パスワード変更</a></li>
               <li><a href="{{ path('logout') }}">ログアウト</a></li>
             </ul>
           </div><!--/.well -->
@@ -64,7 +64,7 @@
             <div class="span4">
               <h2>パスワードの変更</h2>
               <p>ログインをしているユーザーのパスワードを変更することができます。なおパスワードの変更には古いパスワードが必要となります。忘れてしまった場合は、ユーザーの編集権限のあるユーザーにパスワードを変更してもらってください。</p>
-              <p><a class="btn" href="#">パスワード変更へ &raquo;</a></p>
+              <p><a class="btn" href="{{ path('user_change_password', { 'id': app.user.id }) }}">パスワード変更へ &raquo;</a></p>
             </div><!--/span-->
             <div class="span4">
               <h2>ログアウト</h2>

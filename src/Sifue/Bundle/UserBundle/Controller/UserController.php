@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Sifue\Bundle\UserBundle\Entity\User;
 use Sifue\Bundle\UserBundle\Form\UserType;
+use Sifue\Bundle\UserBundle\Form\EditUserType;
+use Sifue\Bundle\UserBundle\Form\ChangePasswordUserType;
 
 /**
  * User controller.
@@ -116,7 +118,7 @@ class UserController extends Controller
             throw $this->createNotFoundException('Unable to find User entity.');
         }
 
-        $editForm = $this->createForm(new UserType(), $entity);
+        $editForm = $this->createForm(new EditUserType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('SifueUserBundle:User:edit.html.twig', array(
@@ -141,12 +143,10 @@ class UserController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new UserType(), $entity);
+        $editForm = $this->createForm(new EditUserType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
-            $this->encodePassword($entity);
-
             $em->persist($entity);
             $em->flush();
 
@@ -191,4 +191,58 @@ class UserController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Displays a form to change password an existing User entity.
+     *
+     */
+    public function changePasswordAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+        $editForm = $this->createForm(new ChangePasswordUserType(), $entity);
+
+        return $this->render('SifueUserBundle:User:change_password.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView()
+        ));
+    }
+
+    /**
+     * Update password an existing User entity.
+     *
+     */
+    public function updatePasswordAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('SifueUserBundle:User')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+        $editForm = $this->createForm(new ChangePasswordUserType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $this->encodePassword($entity);
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('user_change_password', array('id' => $id)));
+        }
+
+        return $this->render('SifueUserBundle:User:change_password.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView()
+        ));
+    }
+
 }

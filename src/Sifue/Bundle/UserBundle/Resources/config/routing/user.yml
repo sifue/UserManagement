@@ -28,3 +28,12 @@ user_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "SifueUserBundle:User:delete" }
     requirements: { _method: post }
+
+user_change_password:
+    pattern:  /{id}/change_password
+    defaults: { _controller: "SifueUserBundle:User:changePassword" }
+
+user_update_password:
+    pattern:  /{id}/update_password
+    defaults: { _controller: "SifueUserBundle:User:updatePassword" }
+    requirements: { _method: post }
